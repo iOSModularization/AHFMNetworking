@@ -1,0 +1,25 @@
+PODS:
+  - AHFMNetworking (0.1.0):
+    - Alamofire (~> 4.4)
+    - KeychainAccess (~> 3.0.2)
+    - SwiftyJSON
+  - Alamofire (4.5.0)
+  - KeychainAccess (3.0.2)
+  - SwiftyJSON (3.1.4)
+
+DEPENDENCIES:
+  - AHFMNetworking (from `../`)
+
+EXTERNAL SOURCES:
+  AHFMNetworking:
+    :path: ../
+
+SPEC CHECKSUMS:
+  AHFMNetworking: 3c645ac2d8ee238c83068b16b4496015950942ed
+  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  KeychainAccess: a986406022dfc7c634c691ad3bec670cc6a32002
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+
+PODFILE CHECKSUM: ae556c6853b1b7a028d0dca9deb17170cb8cf5d8
+
+COCOAPODS: 1.3.0.beta.2

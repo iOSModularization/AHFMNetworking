@@ -1,0 +1,33 @@
+{
+  "name": "AHFMNetworking",
+  "version": "0.1.0",
+  "summary": "A short description of AHFMNetworking.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/iOSModularization/AHFMNetworking",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "ivsall2012": "ivsall2012@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/iOSModularization/AHFMNetworking.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "AHFMNetworking/Classes/**/*",
+  "dependencies": {
+    "Alamofire": [
+      "~> 4.4"
+    ],
+    "KeychainAccess": [
+      "~> 3.0.2"
+    ],
+    "SwiftyJSON": [
+
+    ]
+  }
+}
