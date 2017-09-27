@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'AHFMNetworking_Example' do
+  pod 'AHFMNetworking', :path => '../'
+
+  target 'AHFMNetworking_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
