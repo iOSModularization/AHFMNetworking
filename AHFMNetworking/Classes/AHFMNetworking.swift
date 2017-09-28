@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-final class AHFMNetworking: NSObject {
+public class AHFMNetworking: NSObject {
     fileprivate var requests = [DataRequest]()
     
     
@@ -60,20 +60,20 @@ final class AHFMNetworking: NSObject {
         return sessionManager
     }()
     
-    func cancelAllRequests() {
+    public func cancelAllRequests() {
         requests.forEach { (request) in
             request.cancel()
         }
         requests.removeAll()
     }
     
-    func cancelLastRequest() {
+    public func cancelLastRequest() {
         let request = requests.popLast()
         request?.cancel()
     }
     
     @discardableResult
-    func trending(_ completion: @escaping (_ data: Any?, _ error: Error?)->Void)  -> DataRequest{
+    public func trending(_ completion: @escaping (_ data: Any?, _ error: Error?)->Void)  -> DataRequest{
         let baseURLString = Constants.BaseURL.trending
         
         let urlString = "\(baseURLString)"
@@ -82,7 +82,7 @@ final class AHFMNetworking: NSObject {
     }
     
     @discardableResult
-    func show(byShowId showId:Int, _ completion: @escaping (_ data: Any?, _ error: Error?)->Void)  -> DataRequest{
+    public func show(byShowId showId:Int, _ completion: @escaping (_ data: Any?, _ error: Error?)->Void)  -> DataRequest{
         let baseURLString = Constants.BaseURL.showById
         
         let urlString = "\(baseURLString)/\(showId)"
@@ -92,7 +92,7 @@ final class AHFMNetworking: NSObject {
     }
 
     @discardableResult
-    func episode(byEpisodeId episodeId:Int, _ completion: @escaping (_ data: Any?, _ error: Error?)->Void)  -> DataRequest{
+    public func episode(byEpisodeId episodeId:Int, _ completion: @escaping (_ data: Any?, _ error: Error?)->Void)  -> DataRequest{
         let baseURLString = Constants.BaseURL.episodeById
         let urlStr = "\(baseURLString)/\(episodeId)"
         
@@ -101,7 +101,7 @@ final class AHFMNetworking: NSObject {
     }
     
     @discardableResult
-    func episodes(byShowID showID:Int, _ completion: @escaping (_ data: Any?, _ error: Error?)->Void)  -> DataRequest{
+    public func episodes(byShowID showID:Int, _ completion: @escaping (_ data: Any?, _ error: Error?)->Void)  -> DataRequest{
         let baseURLString = Constants.BaseURL.episodesByShowID
         let urlStr = "\(baseURLString)/\(showID)/episodes"
         
@@ -110,7 +110,7 @@ final class AHFMNetworking: NSObject {
     }
     
     @discardableResult
-    func shows(byRelatedShowId id:Int, _ completion: @escaping (_ data: Any?, _ error: Error?)->Void)  -> DataRequest{
+    public func shows(byRelatedShowId id:Int, _ completion: @escaping (_ data: Any?, _ error: Error?)->Void)  -> DataRequest{
         let baseURLString = Constants.BaseURL.relatedShowsById
         let urlStr = "\(baseURLString)/\(id)/related"
         
@@ -119,7 +119,7 @@ final class AHFMNetworking: NSObject {
     }
     
     @discardableResult
-    func showsChartDaily(amount: Int,_ completion: @escaping (_ data: Any?, _ error: Error?)->Void)  -> DataRequest{
+    public func showsChartDaily(amount: Int,_ completion: @escaping (_ data: Any?, _ error: Error?)->Void)  -> DataRequest{
         //https://www.audiosear.ch/api/chart_daily?limit=50&country=us
         let urlStr = "https://www.audiosear.ch/api/chart_daily?limit=\(amount)&country=us"
         
@@ -127,13 +127,13 @@ final class AHFMNetworking: NSObject {
     }
     
     @discardableResult
-    func showsByCategory(_ categoryName: String,  _ completion: @escaping (_ data: Any?, _ error: Error?)->Void)  -> DataRequest{
+    public func showsByCategory(_ categoryName: String,  _ completion: @escaping (_ data: Any?, _ error: Error?)->Void)  -> DataRequest{
         let url = "https://audiosear.ch/api/search/shows/*?filters[categories.name]=\(categoryName.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlHostAllowed)!)"
         return request(urlStr: url, completion)
     }
     
     @discardableResult
-    func episodesByKeyword(_ keyword: String, _ completion: @escaping (_ data: Any?, _ error: Error?)->Void)  -> DataRequest{
+    public func episodesByKeyword(_ keyword: String, _ completion: @escaping (_ data: Any?, _ error: Error?)->Void)  -> DataRequest{
         // You have to add 'www' !!
         // https://www.audiosear.ch/api/search/episodes/women?size=20&from=0
         let url = "https://www.audiosear.ch/api/search/episodes/\(keyword.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlHostAllowed)!)?size=20&from=0"
